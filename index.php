@@ -1,162 +1,99 @@
 <?php
 
-  // --->simple problem ar program start
-
-    // driven licencese checker
-    function drive(int $age)
-    {
-        $age = $age;
-        if($age >18){
-            echo "you can drive";
-        }else {
-            echo "you can not drive";       
+    // ** is alphabet or number checker
+    function dtcheck($value){
+        if(is_numeric($value)){
+            echo "$value is a number";
+        }
+        elseif(ctype_alpha($value)){
+            echo "$value is a character or string";
+        }
+        else {
+            echo "$value is not a character and number";
         }
     }
-    drive(18);
-    
-    // prime number checker
-    function primeChecker(int $num){
 
-        if($num === 1) echo "$num is a prime number";
-        elseif(($num %2 ===0 || $num%3===0)){
-            echo "$num is not prime number";
-        }
-        elseif($num<0){
-            echo "$num is not valid number";
-        }
-        elseif($num!=0){
-            echo "$num is a prime number";
-        }
-    }
-    primeChecker(7898);
+    dtcheck("^");
     echo "<br>";
 
-    function emailChecker($email="test@gamil.com",$passord)
-    {
-        if($email === "test@gamil.com" && $passord === "12334566") {echo "login";}
-        else {echo "denied";}
-
-        echo "<br>";
+    // ** find greater number in 4 digit;
+    function greater($num1,$num2,$num3,$num4){
+        if($num1>$num2 && $num1>$num3 && $num1>$num4) echo "$num1 is greater than of all";
+        else if($num2>$num3 && $num2>$num4) echo "$num2 is greater than of all";
+        else if($num3>$num4) echo "$num3 is greater than of all";
+        else echo "$num4 is greater than of all";
     }
-    
-    emailChecker($passord="test@gamil.com",$email="12334566");
-    emailChecker(email:"test@gamil.com",passord:"12334566");
-   
-    // --->simple problem ar program end
+    greater(453412341234,2345643,3454,33241343);
+    echo "<br>";
 
-  
-    
+    // ** checking positive ,negative and nutral or odd and even
+    function numberchecker($num){
+        if($num>0){
+            echo "$num is a positive number <br>";
 
+            if($num%2==0) echo "$num is a even number <br>";
+            else echo "$num is a odd number <br>";
+        }
+        else if($num<0){
+            echo "$num is a negative number <br>";
+        }
+        else {
+            echo "$num is nutral number <br>";
+        }
+    }
+    numberchecker(0);
+    echo "<br>";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // for practice purpose=>
-
-    // //uses of var_dump function
-    // $name="aranna";
-    // $age=20;
-    // $weight=55.5;
-    // $male=true;
-    // $null=null;
-
-    // var_dump($name);
-    // echo "<br>";
-    // var_dump($age);
-    // echo "<br>";
-    // var_dump($weight);
-    // echo "<br>";
-    // var_dump($male);
-    // echo "<br>";
-    // var_dump($null);
-    // echo "<br>";
-
-    // // formated print ar function
-    // printf("my name is %s <br>",strtoupper($name));
-
-    // /*
-    // * *Arithmetic operators(+,-,*,/,%,**)
-    // * *Assignment operators(=,-=,+=,*=,/=,%=)
-    // * *Comparison operators(==,===,(!=.<>),!==,<,>,<=<>=,<=>)
-    // * *Increment/Decrement operators(++X,X++,--X,X--)
-    // * *Logical operators(and,or,xor,&&,||,!)
-    // * *String operators(.,.=)
-    // * *Array operators
-    // * *Conditional assignment operators(?:,??)
-    // */
-
-    // $num=10;
-    // $num2=20;
-    // if($num <> 10){
-    //     echo("num is not $num");
-    // }
-    // else {
-    //     echo("num is $num");
-    // }
-    // echo "<br>";
-    // echo($num2 <=> $num);
-    // echo "<br>";
-    // echo($num <=> $num2);
-    // echo "<br>";
-    // echo($num2 <=> $num2);
-    // echo "<br>";
-
-    // $name1="aranna";
-    // $name2=" barua";
-    // $name1.=$name2;
-    // printf("my name is %s",strtoupper($name1));
-
-    // echo "<br>";
-
-    // if(1 xor 0) {echo"Yes <br>";}
-    // else {echo 'no <br>';}
-    // if(1 or 0) {echo"Yes <br>";}
-    // else {echo 'no <br>';}
-    // if(1 and 0) {echo"Yes <br>";}
-    // else {echo 'no <br>';}
-
-    // if(!(1 xor 0)) {echo"Yes <br>";}
-    // else {echo 'no <br>';}
-    // if(1 || 0) {echo"Yes <br>";}
-    // else {echo 'no <br>';}
-    // if(1 && 0) {echo"Yes <br>";}
-    // else {echo 'no <br>';}
-    // echo "<br>";
-    // $x=3;
-    // $y=4;
-    // var_dump($x <> $y);
-    // echo "<br>";
-    // echo $x>$y ? $x:$y;
-    // echo "<br>";
-    // echo $x??$b;
+    // ** authentication system
+    function authorize($name,$age,$gender,$position){
+        if(ctype_alpha($name)){
+            echo "your name is $name <br>";
+            if(is_numeric($age)) {
+                echo "your age is $age <br>";
+                if(ctype_alpha($gender)) {
+                    echo "your gender is $gender <br>";
+                    if(ctype_alpha($position)) {
+                        echo "your position is $position <br>";
+                    }
+                    else echo "you give wrong input in position <br>";
+                }
+                else echo "you give wrong input in gender <br>";
+            }
+            else echo "you give wrong input in age <br>";
+        }
+        else echo "you give wrong input in name <br>";
+    }
+    authorize("aranna","20","male","cenior programmer");//** problem 01 */
+    echo "<br>";
 
 
+    // loan system
+    function loanPayment_PerMonth($totalLoan,$duration,$interest){
+        $payment_permonth=$totalLoan/$duration;
+        $interest/=100;
+        $interest_permonth=$interest/$duration;
+        $interest_amount =$payment_permonth * $interest_permonth;
+        $totalamount_permonth=$interest_amount+$payment_permonth;
 
-  
+        return ceil($totalamount_permonth);
+    }
+
+    function ableToloan($income,$consume,$minimumSavings){
+        $saving=$income-$consume;
+
+        echo $minimumSavings<=$saving ? "you are eligible to get loan":"you are not eligible to get loan";
+    }
+
+    ableToloan(40000,20000,loanPayment_PerMonth(100000,12,10));
+    echo "<br>";
+    echo "<br>";
+
+    // bill system
+    function gift($totalprize)
+    {
+        if($totalprize>999){
+            echo "You got a gift sir ,CONGRATULATIONS!!!!";
+        }
+        else echo "NO gift Sir.";
+    }
+    gift(6783);
